@@ -32,7 +32,7 @@ def evaluate_tests():
         shutil.rmtree(dest_dir)
         os.mkdir(dest_dir)
         
-    parseMarkdownFiles(src_dir, dest_dir)
+    parseMarkdownFiles(src_dir, dest_dir, True)
 
     Markdown_Count_Check = check_markdown_files_count(src_dir) == check_markdown_files_count(dest_dir)
 

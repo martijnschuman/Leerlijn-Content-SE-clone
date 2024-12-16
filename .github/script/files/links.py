@@ -3,7 +3,7 @@ import re, os
 from pathlib import Path
 
 # Variables
-from config import VALID_DYNAMIC_LINK_PREFIXES, ERROR_INVALID_DYNAMIC_LINK
+from config import VALID_DYNAMIC_LINK_PREFIXES, ERROR_INVALID_DYNAMIC_LINK, VERBOSE
 
 """
 Update dynamic links in the content of a markdown file.
@@ -38,7 +38,7 @@ def updateDynamicLinks(filePath, content, skipValidateDynamicLinks):
 
         # Check if the dynamic link is valid
         if not validateDynamicLink(filePath, new_link):
-            print(ERROR_INVALID_DYNAMIC_LINK + new_link)
+            if VERBOSE: print(ERROR_INVALID_DYNAMIC_LINK + new_link)
             errors.append(ERROR_INVALID_DYNAMIC_LINK + ' `' + new_link + '` ')
 
     return content, errors
@@ -82,6 +82,6 @@ def validateDynamicLink(source_filePath, link):
 
     # If no valid file is found, report error with details
     if not found_file:
-        print(f"Error: source file: {source_filePath}, target file '{file_name}' not found in content.")
+        if VERBOSE: print(f"Error: source file: {source_filePath}, target file '{file_name}' not found in content.")
 
     return False
