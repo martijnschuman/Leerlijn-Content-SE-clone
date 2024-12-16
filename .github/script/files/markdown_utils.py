@@ -96,7 +96,7 @@ def generateTags(taxonomies, filePath, existingTags):
                                tags.append(NOT_NECESSARY)
                             
                             # Checks if the fourth path has the matching 4C/ID component (looking at the folder and taxonomie code)
-                            containsCorrectTaxcos = check_if_file_contains_wrong_4cid(taxonomies, filePath)
+                            containsCorrectTaxcos = checkIfFileContainsWrong4cid(taxonomies, filePath)
                             if containsCorrectTaxcos:
                                 updateProcessReportData(tc_1, tc_2)
                                 updateSubjectReportData(getFileType(filePath), tc_1, tc_2, tc_3)   
@@ -172,7 +172,7 @@ def findWIPItems(content):
     return todo_items
 
 # Checks if a file contains at least one wrong taxonomie code (based on incorrect placement of 4C/ID)
-def check_if_file_contains_wrong_4cid(taxonomies, filePath):
+def checkIfFileContainsWrong4cid(taxonomies, filePath):
     containsOnlyCorrectTaxonomie = True
     for taxonomie in taxonomies:
         if not re.match(TAXONOMIE_PATTERN, taxonomie):
