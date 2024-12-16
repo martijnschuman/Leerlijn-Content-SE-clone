@@ -1,14 +1,14 @@
-name: Test for taxonomie codes
+name: Test for pipeline
+
 on:
   push:
     branches:
-      - staging
+      - main
     paths:
-      - '.github/**'
-      - 'test_cases/**'
+      - ".github/**"
 
 jobs:
-  run-parser-and-create-pr:
+  runs-tests-on-pipeline:
     runs-on: ubuntu-latest
     steps:
       - name: Configure Git
@@ -33,10 +33,10 @@ jobs:
         run: |
           git fetch --all
 
-      - name: Checkout staging branch
+      - name: Checkout content branch
         run: |
-          git checkout staging
+          git checkout content
 
-      - name: Run wikiversie_parser.py script
+      - name: Run test.py script
         run: |
-          python .github/wikiversie_parser.py --src "./content" --dest "./build" --dataset .github/dataset.xlsx --testing --testdir "./test_cases" --verbose
+          python .github/script/tests/run_tests.py
