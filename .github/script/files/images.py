@@ -81,8 +81,8 @@ def formatImageReportTable(image_report):
     return table
 
 """
-Fills the image Rapport with data from the images in the folders
-Every unique TC3 and TC1 combination will be added to the Rapport 2 data.
+Fills the image Report with data from the images in the folders
+Every unique TC3 and TC1 combination will be added to the Report 2 data.
 """
 def fillFailedImages(SRC_DIR, DEST_DIR):
     src_dir = Path(SRC_DIR).resolve()

@@ -7,7 +7,7 @@ from config import DEST_DIR, SRC_DIR, TAXCO_REPORT_PATH, CONTENT_REPORT_PATH, DA
 
 from files.parse import parseDatasetFile, parseMarkdownFiles
 from files.images import fillFailedImages
-from report.populate import populateRapport1, populateRapport2
+from report.populate import populateReport1, populateReport2
 from report.generateTaxcoReport import generateTaxcoReport
 from report.generateContentReport import generateContentReport
 import argparse
@@ -28,13 +28,12 @@ def main():
 
     parseDatasetFile(DATASET)
 
-    populateRapport1() 
-    populateRapport2() 
+    populateReport1() 
+    populateReport2() 
 
     if not os.path.exists(SRC_DIR):
         print(f"Source directory {SRC_DIR} not found.")
         exit(404)
-
     if os.path.exists(DEST_DIR):
         shutil.rmtree(DEST_DIR)
         os.mkdir(DEST_DIR)

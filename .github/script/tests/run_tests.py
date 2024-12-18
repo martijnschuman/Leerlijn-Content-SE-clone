@@ -15,7 +15,7 @@ from report.generateTaxcoReport import generateTaxcoReport
 from report.generateContentReport import generateContentReport
 from files.parse import parseMarkdownFiles, parseDatasetFile
 from tests.evaluate import evaluate_tests
-from report.populate import populateRapport1, populateRapport2
+from report.populate import populateReport1, populateReport2
 
 def validate_test_report(expected, actual):
 
@@ -61,13 +61,22 @@ def test():
     TAXCO_REPORT_PATH = "./.github/script/tests/reports/actual_taxco_test_report.md"
     CONTENT_REPORT_PATH = "./.github/script/tests/reports/actual_content_test_report.md"
 
+    if not os.path.exists(DATASET):
+        print(f"Dataset file {DATASET} not found.")
+        exit(404) 
+
+    if not os.path.exists(SRC_DIR):
+        print(f"Source directory {SRC_DIR} not found.")
+        exit(404)
+    
+
     if os.path.exists(DEST_DIR):
         shutil.rmtree(DEST_DIR)
         os.mkdir(DEST_DIR)
 
     parseDatasetFile(DATASET)
-    populateRapport1()
-    populateRapport2()
+    populateReport1()
+    populateReport2()
 
     parseMarkdownFiles(SRC_DIR, DEST_DIR, False) 
     
@@ -87,16 +96,16 @@ def test():
                     sys.exit(0)
                 else:
                     print("Draft test failed")
-                    sys.exit(4)
+                    sys.exit(14)
             else : 
                 print("Test evaluation failed")
-                sys.exit(3)  
+                sys.exit(13)  
         else:
             print("Content Test report validation failed")
-            sys.exit(2)
+            sys.exit(12)
     else : 
         print("Taxco Test report validation failed")
-        sys.exit(1)
+        sys.exit(11)
 
 if __name__ == "__main__":
     test()

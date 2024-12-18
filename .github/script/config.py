@@ -4,8 +4,8 @@ parsedFiles = [] # Track the status of each parsed file
 failedFiles = [] # Track the status of each failed file
 failedImages = [] # Track which images don't start with a 4C/ID component
 WIPFiles = [] # Track the files that contain Work-in-progress items
-Rapport_1 = {} # Rapport 1 data
-Rapport_2 = {} # Rapport 2 data
+Report_1 = {} # Report 1 data
+Report_2 = {} # Report 2 data
 
 # Constants
 SRC_DIR = "./content" # Source directory where the markdown files are located

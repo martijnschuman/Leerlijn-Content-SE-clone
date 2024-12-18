@@ -1,5 +1,5 @@
 # Variables
-from config import VERBOSE, Rapport_1, Rapport_2
+from config import VERBOSE, Report_1, Report_2
 
 # Constants
 from config import LT, DT, OI, PI, FAIL_CIRCLE, SUCCESS, NOT_NECESSARY
@@ -49,11 +49,11 @@ Returns:
     table (str): Markdown table string.
 """
 def generateProcess():
-    if VERBOSE: print("Generating Rapport 1 table...")
+    if VERBOSE: print("Generating Report 1 table...")
 
     headers = ["TC1", "Proces", "Processtap", "Niveau 1", "Niveau 2", "Niveau 3"]
     rows = []
-    for tc, details in Rapport_1.items():
+    for tc, details in Report_1.items():
         proces = details.get('Proces', '')
         processtap = details.get('Processtap', '')
         tc2_levels = details.get('TC2', {})
@@ -63,7 +63,7 @@ def generateProcess():
         rows.append([tc, proces, processtap, niveau_1, niveau_2, niveau_3])
 
     table = generateMarkdownTable(headers, rows)
-    if VERBOSE: print("Rapport 1 table generated.")
+    if VERBOSE: print("Report 1 table generated.")
     return table
 
 """
@@ -72,7 +72,7 @@ Returns:
     table (str): Markdown table string.
 """
 def generateSubject():
-    if VERBOSE: print("Generating Rapport 2 table...")
+    if VERBOSE: print("Generating Report 2 table...")
 
     headers = ["TC3", "TC1", "TC2", LT, OI, PI, DT]
     rows = []
@@ -85,7 +85,7 @@ def generateSubject():
         else:
             return NOT_NECESSARY
 
-    for tc3, details in Rapport_2.items():
+    for tc3, details in Report_2.items():
         for tc1, other in details.items():
             tc2_levels = other.get('TC2', [''] * 3)
             tc2 = ' '.join([getStatus(level) for level in tc2_levels])
@@ -105,5 +105,5 @@ def generateSubject():
             rows.append([tc3, tc1, tc2, leertaak, ondersteunende_informatie, procedurele_informatie, deeltaak])
 
     table = generateMarkdownTable(headers, rows)
-    if VERBOSE: print("Rapport 2 table generated.")
+    if VERBOSE: print("Report 2 table generated.")
     return table

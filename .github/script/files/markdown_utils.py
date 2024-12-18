@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 
 # Variables
-from config import failedFiles, dataset, Rapport_2, WIPFiles
+from config import failedFiles, dataset, Report_2, WIPFiles
 
 # Constants
 from config import PROCES_COL, PROCESSTAP_COL, TC3_COL, TC2_COL, TAXONOMIE_PATTERN, TODO_PATTERN, FOLDERS_FOR_4CID, VERBOSE, ERROR_INVALID_TAXCO
@@ -72,7 +72,7 @@ def generateTags(taxonomies, filePath, existingTags):
                     # Check if the first part of the taxonomie is equal to the second column (TC1) in the dataset
                     if row[1] == tc_1:
                         # Check if the second part of the taxonomie is equal to the third column (TC2) in the dataset
-                        if row[5] in Rapport_2 and row[5] == tc_3:
+                        if row[5] in Report_2 and row[5] == tc_3:
                             # Adds the taxonomie
                             new_tag = "HBO-i/niveau-" + tc_2
                             if new_tag not in tags:
