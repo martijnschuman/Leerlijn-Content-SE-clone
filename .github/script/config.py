@@ -14,7 +14,7 @@ TAXCO_REPORT_PATH = "./taxco_report.md" # Taxco report path where the taxco repo
 CONTENT_REPORT_PATH = "./content_report.md" # Content report path where the content report will be saved
 DATASET = "./.github/datasets/dataset.xlsx" # Dataset containing the taxonomie information
 TODO_PATTERN = r'-=[A-Z]+=-' # To-Do pattern
-TAXONOMIE_PATTERN = r'^[a-z]{2}-\d{1,3}\.[123]\.[^\s\.]+(\.[^\s\.]+)*\.(?:OI|DT|PI|LT)$' # Taxonomie pattern
+TAXONOMIE_PATTERN = r'^[a-z]{2}-\d{1,3}\.[123]\.[^\s\.]+(-[^\s\.]+)*\.(?:OI|DT|PI|LT)$' # Taxonomie pattern
 VALID_DYNAMIC_LINK_PREFIXES = ['https://', 'http://', 'tags/'] # List of valid dynamic links
 IGNORE_FOLDERS = ["schrijfwijze"] # Folders to ignore
 FOLDERS_FOR_4CID = { # List of 4C/ID components

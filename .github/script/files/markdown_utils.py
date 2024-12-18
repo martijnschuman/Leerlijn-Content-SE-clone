@@ -60,7 +60,7 @@ def generateTags(taxonomies, filePath, existingTags):
             # Check if the taxonomie is in the correct format
             if not re.match(TAXONOMIE_PATTERN, taxonomie):
                 errors.append(ERROR_INVALID_TAXCO + ' `' + taxonomie + '` ')
-                if VERBOSE: print(ERROR_INVALID_TAXCO + taxonomie)
+                print(ERROR_INVALID_TAXCO + taxonomie)
                 continue
 
             # split the taxonomie in it's different parts
