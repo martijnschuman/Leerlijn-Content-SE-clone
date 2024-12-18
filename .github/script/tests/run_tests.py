@@ -87,13 +87,13 @@ def test():
                     sys.exit(0)
                 else:
                     print("Draft test failed")
-                    sys.exit(1)
+                    sys.exit(4)
             else : 
                 print("Test evaluation failed")
-                sys.exit(1)  
+                sys.exit(3)  
         else:
             print("Content Test report validation failed")
-            sys.exit(1)
+            sys.exit(2)
     else : 
         print("Taxco Test report validation failed")
         sys.exit(1)
