@@ -54,7 +54,7 @@ def generateTags(taxonomies, filePath, existingTags):
     combined_tags = []
     taxonomie_tags = []
 
-    if taxonomies is not None and taxonomies != ['None']:
+    if taxonomies is not None and taxonomies != ['None'] and taxonomies != [''] and taxonomies != []:
         for taxonomie in taxonomies:
             if VERBOSE : print(f"Generating tags for taxonomie: {taxonomie}")
             # Check if the taxonomie is in the correct format
